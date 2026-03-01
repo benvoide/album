@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* White, black, gray palette */
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #000000;
+  --primary-muted: #6b7280;
+  --accent-warm: #e5e7eb;
+  --accent-rose: #9ca3af;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --primary: #000000;
+    --primary-muted: #6b7280;
+    --accent-warm: #e5e7eb;
+    --accent-rose: #9ca3af;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+@keyframes pageFlip {
+  0%, 100% {
+    transform: rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: rotate(-100deg);
+    opacity: 0.3;
+  }
+}

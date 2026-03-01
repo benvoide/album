@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upload New Post - Instagram Clone</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9942f0",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#140d1b] dark:text-white transition-colors duration-200">
+<div class="flex flex-col min-h-screen w-full"><header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 md:px-10 py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<!-- Left: Brand -->
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<!-- Center: App Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="flex items-center gap-1 text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm font-medium">Home</span>
+</a>
+<a class="flex items-center gap-1 text-primary border-b-2 border-primary pb-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">group</span>
+<span class="text-sm font-bold">Friends</span>
+</a>
+<a class="flex items-center gap-1 text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-sm font-medium">Explore</span>
+</a>
+</nav>
+<!-- Right: User Actions -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-4 text-xs font-semibold text-slate-500">
+<div class="flex flex-col items-center">
+<span class="text-primary">1.2k</span>
+<span>Followers</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-primary">850</span>
+<span>Following</span>
+</div>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-sm">add_box</span>
+<span>New Post</span>
+</button>
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-lg border border-primary/20">
+<span class="text-sm font-bold text-primary">alex_design</span>
+<div class="size-8 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of Alex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcqpJNQ81g18VUR0NZ70ESzgotHZ7k-VkGPjRqliHxcsqhEvpNMB7mwdn0-7f2pTd2l46ZWCg3wa2Y-jUf7LbQ56D0Ne8TPKInmVWC0fF0wP8oaY6_f5IKqnhTzDOGrjDPcfjMP9xDII4mIHd6iP-FJvkUe_JkI2LjCWrkr6fZ_ACIu-DHeq-Gq6UA2__BmR1tLSWsmoXi-ICelboq7agTk-unVib2xZGlyt_P3IzW5z0tXa4wJnBkKXN_zF4XZLzCbwq5lJMdFU"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center p-6 md:p-10 relative w-full">
+<button class="absolute top-6 right-8 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors z-50">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<div class="flex flex-col w-full max-w-[850px] max-h-[90vh] h-auto bg-white dark:bg-[#1e1429] rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+<div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e1429] shrink-0 z-10">
+<button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider">Create new post</h2>
+<button class="text-primary font-bold text-sm hover:text-primary/80 transition-colors px-4 py-1.5 rounded-full hover:bg-primary/5">
+                        Share
+                    </button>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar p-6 md:p-10 bg-gray-50 dark:bg-black/20">
+<div class="flex flex-col gap-8">
+<div class="w-full relative group">
+<label class="block text-sm font-bold text-gray-900 dark:text-white mb-3 ml-1">Select Media</label>
+<div class="w-full aspect-[2/1] md:aspect-[2.5/1] rounded-2xl border-2 border-dashed border-primary/30 dark:border-primary/40 bg-white dark:bg-[#251a30] hover:bg-primary/5 dark:hover:bg-primary/10 transition-all flex flex-col items-center justify-center cursor-pointer relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="flex flex-col items-center text-center p-6 z-10 transition-transform group-hover:-translate-y-1 duration-300">
+<div class="mb-5 relative">
+<div class="absolute -inset-6 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-5xl md:text-6xl text-gray-300 dark:text-gray-600 group-hover:text-primary transition-colors">image</span>
+<span class="material-symbols-outlined text-5xl md:text-6xl text-gray-300 dark:text-gray-600 group-hover:text-primary transition-colors delay-75">movie</span>
+</div>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Drag photos and videos here</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 font-medium">Add multiple files to create a gallery</p>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg shadow-lg shadow-primary/20 transition-all hover:shadow-primary/40 active:scale-95">
+                                        Select from computer
+                                    </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1e1429] rounded-xl border border-gray-200 dark:border-gray-700 p-6 md:p-8 shadow-sm">
+<div class="flex flex-col gap-6">
+<div class="flex gap-4">
+<div class="size-10 md:size-12 rounded-full bg-gray-200 bg-cover bg-center shrink-0 border-2 border-white dark:border-gray-800 shadow-sm" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOtqhqUaDWgjn4TKNfoj9xtYWMIDliSQumQ3HresyNVNb5KvlGM3cMxTaVnSfk_M6tDgwU5HN9tZorDNLuRekDcwRC54wLpi1mK6Gv1PNHnfyKbr8HGDDBj0D6S1c3k45bRhMQT69zHsgb5r4LD1M-Nx196zgJ_5WTNuGYreiKLyGHKV5MSG1k2JLzyJVEeNGzVKrvrxUjaDiKc-Eq98FQDgcx1US9UUqvYNdm20KjVIOjS9xV1nD4KkeA2Uikn8_KCgPTeD5cN84");'></div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-baseline">
+<span class="text-sm font-bold text-gray-900 dark:text-white">jessica_designs</span>
+<span class="text-xs text-gray-400 font-medium">0/2,200</span>
+</div>
+<div class="relative">
+<textarea class="w-full h-28 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none transition-all leading-relaxed" placeholder="Write a caption..."></textarea>
+<button class="absolute bottom-3 right-3 text-gray-400 hover:text-primary transition-colors p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full">
+<span class="material-symbols-outlined text-xl">sentiment_satisfied</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+<div class="space-y-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Tags</label>
+<div class="relative">
+<input class="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-lg pl-10 pr-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="Tag people or topics (e.g. #design)" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">tag</span>
+</div>
+</div>
+<div class="space-y-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Location</label>
+<div class="relative">
+<input class="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-lg pl-10 pr-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="Add location" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">location_on</span>
+</div>
+</div>
+</div>
+<div class="mt-4 border-t border-gray-100 dark:border-gray-700/50 pt-4">
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer list-none py-2 px-1 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200">Advanced settings</span>
+<span class="material-symbols-outlined text-gray-400 transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="pt-4 px-2 pb-2 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="text-sm text-gray-900 dark:text-gray-100">Hide like and view counts</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="text-sm text-gray-900 dark:text-gray-100">Turn off commenting</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-primary/10 mt-auto py-10 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-50">
+<div class="text-primary">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<h2 class="text-sm font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<div class="flex gap-8 text-xs font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="text-xs text-slate-400 font-medium">
+                © 2024 InstaClone Alex Design.
+            </div>
+</div>
+</footer></div>
+</body></html>

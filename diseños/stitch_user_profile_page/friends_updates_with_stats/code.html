@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9942f0",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 240px;
+            gap: 1rem;
+        }
+        .bento-item-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .bento-item-tall {
+            grid-row: span 2;
+        }
+        .bento-item-wide {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 md:px-10 py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<!-- Left: Brand -->
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<!-- Center: App Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="flex items-center gap-1 text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm font-medium">Home</span>
+</a>
+<a class="flex items-center gap-1 text-primary border-b-2 border-primary pb-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">group</span>
+<span class="text-sm font-bold">Friends</span>
+</a>
+<a class="flex items-center gap-1 text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-sm font-medium">Explore</span>
+</a>
+</nav>
+<!-- Right: User Actions -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-4 text-xs font-semibold text-slate-500">
+<div class="flex flex-col items-center">
+<span class="text-primary">1.2k</span>
+<span>Followers</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-primary">850</span>
+<span>Following</span>
+</div>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-sm">add_box</span>
+<span>New Post</span>
+</button>
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-lg border border-primary/20">
+<span class="text-sm font-bold text-primary">alex_design</span>
+<div class="size-8 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of Alex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcqpJNQ81g18VUR0NZ70ESzgotHZ7k-VkGPjRqliHxcsqhEvpNMB7mwdn0-7f2pTd2l46ZWCg3wa2Y-jUf7LbQ56D0Ne8TPKInmVWC0fF0wP8oaY6_f5IKqnhTzDOGrjDPcfjMP9xDII4mIHd6iP-FJvkUe_JkI2LjCWrkr6fZ_ACIu-DHeq-Gq6UA2__BmR1tLSWsmoXi-ICelboq7agTk-unVib2xZGlyt_P3IzW5z0tXa4wJnBkKXN_zF4XZLzCbwq5lJMdFU"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto p-6 md:p-10">
+<!-- Page Title -->
+<div class="mb-8 flex flex-col gap-1">
+<h1 class="text-3xl font-bold tracking-tight">Friends Updates</h1>
+<p class="text-slate-500">See what your circle has been creating lately.</p>
+</div>
+<!-- Bento Grid -->
+<div class="bento-grid"><!-- Activity Summary Card -->
+<div class="bg-primary/5 p-6 flex flex-col justify-center gap-2 border border-primary/10">
+<div class="flex items-center gap-2 text-primary mb-1">
+<span class="material-symbols-outlined text-2xl">group</span>
+</div>
+<p class="text-xl font-bold leading-tight text-slate-800">
+        64 of your friends uploaded photos today
+    </p>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">Daily Activity</p>
+</div>
+<!-- Large Featured Photo -->
+<div class="bento-item-large relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Large architectural photography of a modern building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQFCbyKPrx5V8g_PbgvksrT1JcsSm0_kZ7_NXp-DFUalijsTXC4ukFE9WmGfqr9qYzApDADbYxBbDf42UohkvyxhRM4CLWA7PQvtR9xyZ7_fXWdju4knI2vKTES3mGV4WCMyVUrYmTm1Wdopzp87QZGU5dkJrYlPJube_lnFLkqW6GbPqQIy4Kwh2UkIuk6wQO0GaMI5h5nq_DMLAF-RqJABJ1I96OvQD_2Brg00Yi81QmPtbEgA50MIPZeL8C_t0H7Zqqi5QMSwk"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
+<p class="text-sm font-bold">@sarah_arch</p>
+<p class="text-xs opacity-80">Modernist structures in Tokyo</p>
+</div>
+</div>
+<!-- Text Update Block -->
+<div class="bg-primary/10 p-6 flex flex-col justify-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">format_quote</span>
+<p class="text-lg font-medium leading-tight text-slate-700">"Just finished the new branding project. Feeling inspired by the spring colors!"</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="size-6 rounded-full bg-primary/20"></div>
+<span class="text-xs font-bold text-primary">@design_studio</span>
+</div>
+</div>
+<!-- Small Square Shot -->
+<div class="relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Overhead shot of a workspace with coffee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Jx7Eba5cutUVm7cU_MGiqFUwf_XLwxXX0Amcj6SpApzgG7PPXUWe8D0uoxG1YJ-94khdusosEVAdF3pyYBc72eBU-v-BkjcvN6HlonpgVZrFX9cGUIWVuoFpI7XTFA_vB1Ma0g0et7mqHZFsVYz8jLSZsKSniI0ZiptfT4vfroRU2KVVoJGpdg4SKHfOaqjRmCgbntt3n7hQfozeJqdI0LaNQCDsFy6Od_XYZKbXN_v9UpOk3LH17q_azthJ6hCxmtMYmhWZ-lg"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">favorite</span>
+</div>
+</div>
+<!-- Tall Vertical Shot -->
+<div class="bento-item-tall relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Vertical portrait of a person in a forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3ulvnNO2dZUjW7WG-2ErJ0C9vmsGKykU-5k2QecM-pM5U538anLAIih524Hd3x86-KwjJ4L6qjOmR3LmBVdvCjU02nsepsrDqkB-WRfC5IRm6tITUCjTlY94AKsB5eud77OxTfxg8hhBHZI6EHgzBrhDatjdB7TPR8xLToM9J4xNTOLSZCQSd0hecmdM5I-6cfxz9BvttLkV5Vv55utYCqd38Y7N9pTW7H49UfY4yR_Ah3DcKLqHN-_X1iNsm90f41VAAWLoTSLw"/>
+<div class="absolute top-4 right-4 text-white">
+<span class="material-symbols-outlined">push_pin</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent text-white">
+<p class="text-xs font-bold">@nature_explorer</p>
+</div>
+</div>
+<!-- Wide Content -->
+<div class="bento-item-wide relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Wide panoramic landscape of a mountain range" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLIuJv1l0U50DeignqFdJZF460zKQJWzMegJxdL4cWhj0VtmNAF-GuFDjQKdZU_DPxMW5xaM4TVCeULEO99v3JeqIq-EBfinmLZ4nyuf3ccRmgA-qotwd6olWVg_PAbOvgEtE1JN14KYCjAtWX174_-tukWRThoNQES2UpEpLpvpQaKbnRNLeNoYeaeP-31wLT0BInKaVaZ6FiVjusXTkLtEaO0BOKH01wcKa5YeAeAi9BO0_gAEybLNQOr_8pPgiXUXnlnGzbpiA"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-white/90 px-4 py-2 text-primary font-bold text-sm tracking-widest uppercase">New Collection</div>
+</div>
+</div>
+<!-- Small Square Shot -->
+<div class="relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a floral arrangement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ0ENGSYw0BXQhwUQz01EUC8x7pmJxKP0v3Hjz4_UsSSasmixp-_WI4IsZWF309DlSsB1SaQjcDlf72HKFcngwpGiGKqoCt1fn_E__uzqcftsWwqimTPGDvTboNlRGzk9dvpLznhDlvCmkkuYYyUZW7GBzYdIfijEjQsTY3PUHRITDRU598qUD-2Hmsr2eG3hCw2RL-AQAliAfTLVprMcuIzgNRa6xiDtw2PRdNupF163ndnrM4yLD5EO8yL9_0jFMIwRs2640e2I"/>
+<div class="absolute bottom-2 right-2 text-white/80">
+<span class="material-symbols-outlined text-sm">image</span>
+</div>
+</div>
+<!-- Small Square Shot -->
+<div class="relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract pastel digital art piece" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxYOdlO9rKIdFeBWH_HOozcyZtKUluSePuk4wJReHksgnq8K8k6cz3dnWToN4qDSSSUMr4Zu_LSvxWRJVOZ53KBdldxnzjK1U8LK0Ctt0fVsUuAcWYJP0Eps-llIDa7qIJTo1AgwgB0Kg84X6vtiBdvWuPFiw7dYpfnmTS8JIfbHqGPXt-X8hXXP2_dejMcpI3MiU7Dmv2Cc3ObKE6yL2YvKydTiVFTQ9Ur9WgvUgtWsdsq8dgRMRnR11YZdZM-WaSlniKFnY52BI"/>
+</div>
+<!-- Small Square Shot with Interaction -->
+<div class="bg-primary/5 p-6 flex flex-col justify-between border border-primary/10">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary">celebration</span>
+<span class="text-[10px] font-bold text-slate-400">2H AGO</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-800">Milestone Reached!</p>
+<p class="text-xs text-slate-500">10,000 creations shared this week.</p>
+</div>
+<button class="text-xs font-bold text-primary flex items-center gap-1">
+                    View Stats <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Large Featured Photo 2 -->
+<div class="bento-item-large relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Vibrant street photography of a neon city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOwlispIaCwI4ufAc5OPYlBkmhMFUQ5Vj43KX9WTzfBi8H0ahu8yChIip78qZp7_HpFGu34GHdB3z5By8O-j-iAuOucgeLV67f5sKj8SpNbPC3L80iynquMHECbZ6FAVCIKDRMg6463e6APtByQeTO9Cfgg_r4aQdEBKC-mlkqVVK2IGsJpx0c83YmF7gW3MrRwJDl0tlRd0uLkNRoAM7AHcMY3vmXZbzpUjVcEQWKgzsyQMfaljGC2CVdIpTuM1u1Il2UdeR80sY"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
+<p class="text-sm font-bold">@neon_streets</p>
+<p class="text-xs opacity-80">Midnight in Shinjuku</p>
+</div>
+</div>
+<!-- Small Square Shot -->
+<div class="relative group overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist desk setup with laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjC0tW3ofj-QxnsLge8279gFIJPU6uhM5tuxgaencM_Y_XTSkMZcDLzcgqVIkejVlXGc-CjxqE_cm0-Owp4IDaX0iF6g7AXPanJVKD83i1Py_NoKlT8z7gyS9tj6iuUWX-nh6QJg8CoWTILeQZvYpFq-gSLxjmLt5aiSHKGTTvW8oliYMwAFLaYeXPisfn_l0nqWtfOyQL2JkWSU360gbBHC9ieW7r05VTZIS9uBKnr5s-dr1yy7wtQHyyJCjz1w4m72VnpzWWkmU"/>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-primary/10 mt-12 py-10 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-50">
+<div class="text-primary">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<h2 class="text-sm font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<div class="flex gap-8 text-xs font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="text-xs text-slate-400 font-medium">
+                © 2024 InstaClone Alex Design.
+            </div>
+</div>
+</footer>
+</body></html>

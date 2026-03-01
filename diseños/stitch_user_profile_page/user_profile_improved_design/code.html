@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InstaClone Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9942f0",
+                        "background-light": "#faf8fc",
+                        "background-dark": "#191022",
+                        "text-main": "#140d1b",
+                        "text-secondary": "#734c9a",
+                        "border-color": "#ede7f3",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d8cde0; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9942f0; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 md:px-10 py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between"><!-- Left: Spacer for balance -->
+<div class="hidden md:block w-32"></div>
+<!-- Center: Brand -->
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<!-- Right: User Actions -->
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-sm">add_box</span>
+<span class="hidden sm:inline">New Post</span>
+</button>
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-lg border border-primary/20">
+<span class="text-sm font-bold text-primary">alex_design</span>
+<div class="size-8 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of Alex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcqpJNQ81g18VUR0NZ70ESzgotHZ7k-VkGPjRqliHxcsqhEvpNMB7mwdn0-7f2pTd2l46ZWCg3wa2Y-jUf7LbQ56D0Ne8TPKInmVWC0fF0wP8oaY6_f5IKqnhTzDOGrjDPcfjMP9xDII4mIHd6iP-FJvkUe_JkI2LjCWrkr6fZ_ACIu-DHeq-Gq6UA2__BmR1tLSWsmoXi-ICelboq7agTk-unVib2xZGlyt_P3IzW5z0tXa4wJnBkKXN_zF4XZLzCbwq5lJMdFU"/>
+</div>
+</div>
+</div></div>
+</header>
+<main class="max-w-[1200px] mx-auto p-6 md:p-10 flex flex-col items-center">
+<div class="w-full max-w-[935px] flex flex-col gap-10">
+<section class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 py-8 md:py-12">
+<div class="relative group flex-shrink-0">
+<div class="h-40 w-40 md:h-52 md:w-52 rounded-full p-[3px] bg-gradient-to-tr from-yellow-400 via-red-500 to-primary">
+<div class="h-full w-full rounded-full bg-background-light dark:bg-background-dark p-[4px]">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Large user profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9JUFWOctoyUVPvSylRvmIRBUl0mJ8amiHjOoMSG_T4VyNZ0DEaE7b1v8gJ3moLrOPpB3ll7YNGibI3aDEeYa2XVl6jUjdTvfUaCurfR8DriFyqK5KwOnL_wawqR9asA5ZajvdbOhEnbqskaTgHlm-dr9at21kkBb7XLun8emyGSmks2sSez4a7V3b4iN3IOZ63pKFfVGPU_GTy9M1EKv5YgcawlDLxxMclFwLpDx0OGH41WZfSgvbul4oEJRk9Hoje6CHrW3xIXk');"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6 text-center md:text-left">
+<div class="flex flex-col md:flex-row items-center gap-4">
+<h1 class="text-2xl md:text-3xl font-light text-slate-800">alex_design</h1>
+<div class="flex gap-2">
+<button class="px-6 py-1.5 bg-primary text-white text-sm font-bold rounded-lg">Follow</button>
+<button class="p-1.5 bg-slate-100 dark:bg-white/10 rounded-lg">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center md:justify-start gap-8 md:gap-12">
+<div class="flex gap-1.5"><span class="font-bold">128</span> <span class="text-slate-500">posts</span></div>
+<div class="flex gap-1.5"><span class="font-bold">1.2k</span> <span class="text-slate-500">followers</span></div>
+<div class="flex gap-1.5"><span class="font-bold">850</span> <span class="text-slate-500">following</span></div>
+</div>
+<div class="max-w-md">
+<h2 class="font-bold text-slate-800">Alex Design</h2>
+<p class="text-slate-600 mt-1">Digital Artist &amp; Brand Designer ✨ Creating visuals that tell a story. Exploring the intersection of tech and art.</p>
+<a class="text-primary font-bold text-sm block mt-1 hover:underline" href="#">alexdesign.studio</a>
+</div>
+</div>
+</section>
+<div class="border-t border-border-color dark:border-white/10"></div>
+<div class="grid grid-cols-3 gap-1 sm:gap-4 pb-10">
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Beautiful landscape with mountains and lake" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5sCQOHuoXccts0afYfrCQ_1FymE8wHIfmpYzZp57K4R27fxXwNOyGKFT5L9nCZ0RA8-vFVFt55v4PzZiJqm8G6CXL1B9UmA8bjwz_J1a5fATfD9u6s6qCOLzEuZfIi-H5P3W1GHVgEHXYCAsISd5in7VsBKSD16HKLRBHUwOLxRwvEmCWngsN_ZgBShRKcVDUhhH6u5EHu27EzWXT9yNoWgiYdBIbOg9svLhrPhapyVMoWc9ul1ftElqoLC-XoForBnaqSX_yYTA');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-fill-white">favorite</span>
+<span>1.2k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-fill-white">mode_comment</span>
+<span>45</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Portrait of a woman looking away" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUPSByHqeqzNgkAyfCAQcPDNv8cfUG1DG_l8wNXEQaChMW51M7aI_FBkQeBBWj6jlnqpA7ZT-8Hp_cAts9RRUwQB32wWMkz_wi-U2EdOhoMyDYMvHg_RWJv-gHO884Xka7_Fx0-9NqNDDkoJUVwB9fGpqrUVmbPwIjqGnq0nfzAe-behUIIRFWM87cHBR1ja_eC53PCK3S7pmS7VJgBIMwOwu_13g8c0T3PxSiT6Rd4wElVoCwUKdJBKjVRKD75gb2IYOhfj4dCuk');">
+</div>
+<div class="absolute top-2 right-2 text-white drop-shadow-md">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>892</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>30</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Cocktail drink with garnish on a table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4AiwCvjLLdGiIn_6jkHs8xT56OoWqSjFoVdHVgEgZP182ZcbIbtxdysCdzKhRRu_InVzemob8OXPVtGoNw-42uDpXzfTmZJpICDwEcwMdSiiqW0LGFM9_6H56rO-Qs8gRo_RqytaVKo6juqVzOtDYmCBA9DLofy7FPkHk-WvObaRgGuurPjd9-KXDgFgo_xQBM5cjxMx38VpOK7XzYSm7lTWclyZBbm1J3vYwPB_hs6Sy3mJ1RNK5PEhmnhwxkSdBm3HVqPZqNJo');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>2.5k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>120</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern blue car parked on asphalt" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7YxkhQZ8Ir2S7bTVHB4HUa73SwoVtVU43izGNiqPC4jiaGoaxL1vzz8F69aobT3sWsCsppzf6I7KRdUKsrLXCsVsyi4tQ6Y2baX6Crcqm-yhm7pndRk1lw9GL5hN6rbj5hzpOPjgmuuSUbRiFeWMxaKr_5vOkvkSCswGDS4q4xs_UpBQRZB3IBTgwMZf56LMN4X-t2gqbIdTGrjKG9Lkg538UAclzP2SC35QhDxDS7t-oaIV8dSq65HFVfiaSQGtyuJJeviRaiHM');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>3.1k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>210</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Cute puppy dog looking at camera" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUZyktEMnH7cXCgqHNeIlZblaKK3xs7Sxy48xLv78AUfOA41ndGT03hl-8HE_b1n46rDL4BXbufXSUgcWhpDtz_AAdQ1WZWMu673zPRWWOla-crsDrKSTdz0GRyb4YweoR_DN9SnawTvJyjMTDI0BXE6dUCFD4k5yRxis8ErK2ORZJAwHhuh-ipI21D-yjHnUeyPYfMnw-Zu12eXwaK5eClqvgphMo6GaxaeO_G0ArXGKN62kjjO3An1LZdKutDuN_Grnif3_DiHc');">
+</div>
+<div class="absolute top-2 right-2 text-white drop-shadow-md">
+<span class="material-symbols-outlined text-lg">play_arrow</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>5.6k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>542</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Overhead shot of minimalist desk setup" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfK7TRhfJqubg-kmlYLUmGcyTbHUJQJp77X5GeFEvEXrSZf7_W65zKXh18zc8gQEG-ussuiRR9mOrswIdShNubBcFHpa_8YSchtz_LfbAdN8YaIetbsxNKMjuWK4ePnUTKr_PPc9m04yqjjttD3-O-ZzHKe0_Qpoz_f-IbuL4R0JzJgxo5poMbshYVS05MJUiSUGxpCOF0gu2Dp1UK5WRyzcEXB5lYF4qHiswBGyRiVDtJV_QuynXowYRQMy36FR-Hx-cGAP24MTw');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>920</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>84</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Colorful abstract geometric shapes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRshgooeecizTjmgNSdKrwfcjCvvfCH0pyibo5JIMtmRcUdfuwBUTOF2DQfDlbYvNrYkSopm8LH9tALklhcAuAQmXYTACZB8PS6RiEzs7GZBkxIXCMw6kIdYB62qG0whNCw1U-mMeYixrcRiPVVLjtCDUqPbTylQ0CkQLeP5DVksLEDo74e4rYLcRebNffsLlL6fAmDceYfNJX3kA51tlqgbq3vsgroCVYXxgGyc8zMVIqdru1PPeWgWPk0_HSdwGzQc03-fJ2vHc');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>1.8k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>92</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Mountain view during sunset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC263irVuVgWRC4etpg14r9WbiNM3HDbtlk5mRTtsqpnQKd8nvpnIErYNs8H3BUtNyZxTw2Vb8SL3s5TtWPgdz5JxzmXBiiEvgpe47eyonKjWqzCtV8RiLONmiH8jnRFznuDPMc5kMER5YH2UGEjH7WHql68m6b7H5UHCFDkqqEmVZ8tyD5lYdEams70ufftA9H-Z0plNsqQd7wXyVrT_xIrzi6Hcwe9Vqnps54r_g6LI_BJcvDLX0HXHfJ5-vXqbbgwhGlD1ARQo8');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>3.4k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>215</span>
+</div>
+</div>
+</div>
+<div class="group relative aspect-square bg-gray-100 dark:bg-white/5 cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="City skyline of Paris with Eiffel Tower" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGaTRv5AaUkSNIb6MN2bbZKDrtOP52YK1fIbl0a4G_CPSrK3-iGp9MjRVNcx6Ccxya4hrWy7JsCttsN6RlJqBBuqpNkQZk1DN6cWX9K6qQSF0uBpbNOvOF8ZUO6g2lJ7wUx0VcdKJe_Ao3YvcigPSysVWKRPKJSg128BRFTxOyHh-7sNjtsz9WjP6hQ8aN7NgwF9oOWZtmk0w6KYOyYbRfMYovX70Wp5xaWPkByuLwj6eHf4ZAvR-HiU36ysMv7KpkMDTDT9SACLU');">
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">favorite</span>
+<span>15k</span>
+</div>
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">mode_comment</span>
+<span>980</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-primary/10 mt-12 py-10 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-50">
+<div class="text-primary">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<h2 class="text-sm font-bold tracking-tight text-primary">InstaClone</h2>
+</div>
+<div class="flex gap-8 text-xs font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="text-xs text-slate-400 font-medium">
+                © 2024 InstaClone Alex Design.
+            </div>
+</div>
+</footer></body></html>
