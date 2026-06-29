@@ -10,25 +10,28 @@ export default async function HomePage() {
 
   if (!user) {
     return (
-      <main className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center px-4">
+      <main className="flex min-h-[calc(100dvh-64px)] flex-col items-center justify-center px-4">
         <div className="max-w-lg text-center">
           <div className="flex justify-center">
-            <AlbumLogo className="h-12 w-auto text-[var(--primary)]" />
+            <AlbumLogo className="h-14 w-auto text-[var(--primary)]" />
           </div>
-          <p className="mt-4 text-lg text-[var(--foreground)]">
-            Your private photo album. Keep your memories safe and share them
-            when you want.
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-[var(--primary)] md:text-5xl">
+            Your photos, your rules.
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-[var(--primary-muted)]">
+            A private space for your memories. Share exactly what you want, with
+            who you want.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
               href="/signup"
-              className="rounded-lg bg-[var(--primary)] px-6 py-3 font-bold text-white transition-colors hover:opacity-90"
+              className="rounded-lg bg-[var(--primary)] px-6 py-3 text-base font-semibold text-white transition-all hover:opacity-90 active:translate-y-[1px]"
             >
               Get started
             </Link>
             <Link
               href="/login"
-              className="rounded-lg border border-[var(--primary)]/30 px-6 py-3 font-medium text-[var(--primary)] transition-colors hover:bg-[var(--primary)]/5"
+              className="rounded-lg border border-[var(--primary)]/20 px-6 py-3 text-base font-medium text-[var(--primary)] transition-all hover:bg-[var(--primary)]/5 active:translate-y-[1px]"
             >
               Sign in
             </Link>
@@ -45,23 +48,27 @@ export default async function HomePage() {
     .order("created_at", { ascending: false });
 
   return (
-    <main className="mx-auto max-w-[1200px] px-4 py-8 md:px-10">
-      <div className="mb-8">
+    <main className="mx-auto max-w-[1200px] px-4 py-10 md:px-10">
+      <div className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-[var(--foreground)]">
           My albums
         </h1>
-        <p className="mt-1 text-[var(--primary-muted)]">
-          Your photo collections. Create one to get started.
+        <p className="mt-1.5 text-[var(--primary-muted)]">
+          {publications?.length || 0} collection{publications?.length !== 1 ? "s" : ""}
         </p>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Link
           href="/new"
-          className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-[var(--primary-muted)]/40 bg-[var(--accent-warm)]/10 transition-colors hover:border-[var(--primary)]/50 hover:bg-[var(--accent-warm)]/20"
+          className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-[var(--primary-muted)]/30 bg-[var(--accent-warm)]/20 transition-all hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/5"
         >
-          <span className="text-4xl text-[var(--primary)]">+</span>
-          <span className="font-medium text-[var(--primary)]">New album</span>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-[var(--primary-muted)]">
+            <path d="M16 6v20M6 16h20" />
+          </svg>
+          <span className="text-sm font-semibold text-[var(--primary-muted)]">
+            New album
+          </span>
         </Link>
 
         {publications?.map((pub) => (
@@ -70,9 +77,11 @@ export default async function HomePage() {
       </div>
 
       {(!publications || publications.length === 0) && (
-        <p className="mt-8 text-center text-[var(--primary-muted)]">
-          No albums yet. Create your first one above.
-        </p>
+        <div className="mt-16 text-center">
+          <p className="text-[var(--primary-muted)]">
+            No albums yet. Create your first one to get started.
+          </p>
+        </div>
       )}
     </main>
   );
@@ -88,10 +97,10 @@ async function AlbumCard({
   const supabase = await createClient();
   const { data: photos } = await supabase
     .from("photos")
-    .select("storage_path")
+    .select("storage_path, id")
     .eq("publication_id", publication.id)
     .order("order_index")
-    .limit(1);
+    .limit(4);
 
   const coverPath = photos?.[0]?.storage_path;
   let coverUrl: string | null = null;
@@ -103,29 +112,45 @@ async function AlbumCard({
     coverUrl = data?.signedUrl ?? null;
   }
 
+  const photoCount = photos?.length || 0;
+
   return (
     <Link
       href={`/album/${publication.id}`}
-      className="group overflow-hidden rounded-xl border border-[var(--accent-warm)]/30 bg-white shadow-sm transition-all hover:shadow-md dark:bg-[var(--primary)]/5"
+      className="group overflow-hidden rounded-xl border border-[var(--accent-warm)]/40 bg-[var(--background)] shadow-sm transition-all hover:shadow-md"
     >
-      <div className="aspect-[4/3] bg-[var(--accent-warm)]/20">
+      <div className="aspect-[4/3] bg-[var(--accent-warm)]/10">
         {coverUrl ? (
           <img
             src={coverUrl}
             alt=""
-            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+            className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-4xl text-[var(--primary-muted)]">
-            📷
+          <div className="flex h-full w-full items-center justify-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-[var(--primary-muted)]/40">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
           </div>
         )}
       </div>
       <div className="p-4">
-        <h2 className="font-bold text-[var(--foreground)]">{publication.title}</h2>
-        <p className="mt-1 text-xs text-[var(--primary-muted)] capitalize">
-          {publication.privacy_level}
-        </p>
+        <div className="flex items-center justify-between">
+          <h2 className="text-base font-semibold text-[var(--foreground)]">
+            {publication.title}
+          </h2>
+        </div>
+        <div className="mt-1.5 flex items-center gap-3 text-xs text-[var(--primary-muted)]">
+          <span className="capitalize">{publication.privacy_level}</span>
+          {photoCount > 0 && (
+            <>
+              <span className="text-[var(--accent-warm)]">·</span>
+              <span>{photoCount} photo{photoCount !== 1 ? "s" : ""}</span>
+            </>
+          )}
+        </div>
       </div>
     </Link>
   );

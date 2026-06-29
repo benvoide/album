@@ -2,6 +2,7 @@ import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AlbumActions } from "./AlbumActions";
+import { AlbumGallery } from "./AlbumGallery";
 
 export default async function AlbumPage({
   params,
@@ -47,81 +48,50 @@ export default async function AlbumPage({
     }
   }
 
+  const photoList = photos?.map((p) => ({
+    id: p.id,
+    url: signedUrls[p.id] || "",
+    caption: p.caption,
+  })) || [];
+
   return (
-    <main className="mx-auto max-w-[1200px] px-4 py-8 md:px-10">
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <Link
-            href="/"
-            className="text-sm font-medium text-[var(--primary-muted)] hover:text-[var(--primary)]"
-          >
-            ← Back to albums
-          </Link>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-[var(--foreground)]">
-            {publication.title}
-          </h1>
-          <p className="mt-1 text-sm capitalize text-[var(--primary-muted)]">
-            {publication.privacy_level}
-          </p>
-        </div>
+    <main className="mx-auto max-w-[1200px] px-4 py-10 md:px-10">
+      <div className="mb-10">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1 text-sm font-medium text-[var(--primary-muted)] transition-colors hover:text-[var(--primary)]"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M10 3L5 8l5 5" />
+          </svg>
+          Back to albums
+        </Link>
 
-        <AlbumActions
-          publicationId={publication.id}
-          privacyLevel={publication.privacy_level}
-          shareToken={publication.share_token}
-        />
-      </div>
-
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {photos?.map((photo) => (
-          <div
-            key={photo.id}
-            className="overflow-hidden rounded-xl border border-[var(--accent-warm)]/30 bg-white shadow-sm dark:bg-[var(--primary)]/5"
-          >
-            <div className="aspect-square bg-[var(--accent-warm)]/20">
-              {signedUrls[photo.id] ? (
-                <img
-                  src={signedUrls[photo.id]}
-                  alt={photo.caption || ""}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center text-4xl text-[var(--primary-muted)]">
-                  📷
-                </div>
+        <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-[var(--foreground)]">
+              {publication.title}
+            </h1>
+            <div className="mt-2 flex items-center gap-2 text-sm text-[var(--primary-muted)]">
+              <span className="capitalize">{publication.privacy_level}</span>
+              {photoList.length > 0 && (
+                <>
+                  <span className="text-[var(--accent-warm)]">·</span>
+                  <span>{photoList.length} photo{photoList.length !== 1 ? "s" : ""}</span>
+                </>
               )}
             </div>
-            {photo.caption && (
-              <p className="p-3 text-sm text-[var(--foreground)]">
-                {photo.caption}
-              </p>
-            )}
           </div>
-        ))}
+
+          <AlbumActions
+            publicationId={publication.id}
+            privacyLevel={publication.privacy_level}
+            shareToken={publication.share_token}
+          />
+        </div>
       </div>
 
-      {(!photos || photos.length === 0) && (
-        <div className="rounded-xl border-2 border-dashed border-[var(--primary-muted)]/40 bg-[var(--accent-warm)]/10 p-12 text-center">
-          <p className="text-[var(--primary-muted)]">No photos in this album yet.</p>
-          <Link
-            href={`/album/${id}/add`}
-            className="mt-4 inline-block rounded-lg bg-[var(--primary)] px-4 py-2 font-bold text-white hover:opacity-90"
-          >
-            Add photos
-          </Link>
-        </div>
-      )}
-
-      {photos && photos.length > 0 && (
-        <div className="mt-8">
-          <Link
-            href={`/album/${id}/add`}
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--primary)]/30 px-4 py-2 font-medium text-[var(--primary)] hover:bg-[var(--primary)]/5"
-          >
-            + Add more photos
-          </Link>
-        </div>
-      )}
+      <AlbumGallery photos={photoList} albumId={id} />
     </main>
   );
 }

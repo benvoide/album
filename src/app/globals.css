@@ -2,24 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* White, black, gray palette */
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #000000;
-  --primary-muted: #6b7280;
-  --accent-warm: #e5e7eb;
-  --accent-rose: #9ca3af;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --primary: #1e293b;
+  --primary-muted: #78716c;
+  --accent-warm: #e7e5e4;
+  --accent: #d97706;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #000000;
-    --primary: #000000;
-    --primary-muted: #6b7280;
-    --accent-warm: #e5e7eb;
-    --accent-rose: #9ca3af;
+    --background: #0c0a09;
+    --foreground: #e7e5e4;
+    --primary: #fafaf9;
+    --primary-muted: #a8a29e;
+    --accent-warm: #292524;
+    --accent: #f59e0b;
   }
 }
 
@@ -29,13 +28,17 @@ body {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
-@keyframes pageFlip {
-  0%, 100% {
-    transform: rotate(0deg);
-    opacity: 0.9;
-  }
-  50% {
-    transform: rotate(-100deg);
-    opacity: 0.3;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

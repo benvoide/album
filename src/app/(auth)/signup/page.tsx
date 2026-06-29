@@ -35,7 +35,7 @@ export default function SignupPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center text-center">
           <AlbumLogo className="h-9 w-auto text-[var(--primary)]" />
           <p className="mt-2 text-sm text-[var(--primary-muted)]">
@@ -45,7 +45,7 @@ export default function SignupPage() {
 
         <form
           onSubmit={handleSignup}
-          className="rounded-xl border border-[var(--accent-warm)]/30 bg-white p-6 shadow-sm"
+          className="rounded-xl border border-[var(--accent-warm)]/40 bg-[var(--background)] p-6 shadow-sm"
         >
           <div className="space-y-4">
             <div>
@@ -61,7 +61,7 @@ export default function SignupPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="mt-1 w-full rounded-lg border border-[var(--primary-muted)]/30 bg-white px-4 py-2.5 text-[var(--foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
+                className="mt-1.5 w-full rounded-lg border border-[var(--accent-warm)]/50 bg-[var(--background)] px-4 py-2.5 text-[var(--foreground)] transition-colors placeholder:text-[var(--primary-muted)]/50 focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
               />
             </div>
 
@@ -79,9 +79,9 @@ export default function SignupPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="mt-1 w-full rounded-lg border border-[var(--primary-muted)]/30 bg-white px-4 py-2.5 text-[var(--foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
+                className="mt-1.5 w-full rounded-lg border border-[var(--accent-warm)]/50 bg-[var(--background)] px-4 py-2.5 text-[var(--foreground)] transition-colors placeholder:text-[var(--primary-muted)]/50 focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
               />
-              <p className="mt-1 text-xs text-[var(--primary-muted)]">
+              <p className="mt-1.5 text-xs text-[var(--primary-muted)]">
                 At least 6 characters.
               </p>
             </div>
@@ -89,10 +89,10 @@ export default function SignupPage() {
 
           {message && (
             <p
-              className={`mt-4 text-sm ${
+              className={`mt-4 rounded-lg p-3 text-sm ${
                 message.type === "success"
-                  ? "text-green-600"
-                  : "text-[var(--accent-rose)]"
+                  ? "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-400"
+                  : "bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400"
               }`}
             >
               {message.text}
@@ -102,7 +102,7 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-6 w-full rounded-lg bg-[var(--primary)] px-4 py-2.5 font-bold text-white transition-colors hover:opacity-90 disabled:opacity-50"
+            className="mt-6 w-full rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-50 active:translate-y-[1px]"
           >
             {loading ? "Creating account..." : "Sign up"}
           </button>
@@ -112,7 +112,7 @@ export default function SignupPage() {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-medium text-[var(--primary)] hover:underline"
+            className="font-medium text-[var(--primary)] transition-colors hover:text-[var(--accent)]"
           >
             Sign in
           </Link>
