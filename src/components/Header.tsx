@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AlbumLogo } from "@/components/AlbumLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export async function Header() {
   const supabase = await createClient();
@@ -16,6 +17,7 @@ export async function Header() {
         </Link>
 
         <nav className="flex items-center gap-3">
+          <ThemeToggle />
           {user ? (
             <>
               <Link
