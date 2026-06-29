@@ -3,22 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --primary: #1e293b;
-  --primary-muted: #78716c;
-  --accent-warm: #e7e5e4;
-  --accent: #d97706;
+  --background: #f7f5f2;
+  --foreground: #2d2a27;
+  --primary: #9ab0a4;
+  --primary-muted: #8c8680;
+  --accent-warm: #ece8e3;
+  --accent: #d4a8a8;
+}
+
+@layer base {
+  * {
+    border-color: var(--accent-warm);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0a09;
-    --foreground: #e7e5e4;
-    --primary: #fafaf9;
-    --primary-muted: #a8a29e;
-    --accent-warm: #292524;
-    --accent: #f59e0b;
+    --background: #1a1817;
+    --foreground: #e3ddd8;
+    --primary: #b8cdc0;
+    --primary-muted: #9e9892;
+    --accent-warm: #2e2b29;
+    --accent: #dbb4b4;
   }
 }
 
@@ -28,17 +34,7 @@ body {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+::selection {
+  background: var(--primary);
+  color: var(--background);
 }
